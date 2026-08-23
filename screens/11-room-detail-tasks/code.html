@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Room Detail - INK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "inverse-on-surface": "#313030",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "primary-container": "#e2e2e2",
+                        "on-tertiary-container": "#696360",
+                        "primary": "#ffffff",
+                        "on-primary-container": "#636565",
+                        "on-secondary-container": "#b8b8b8",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary": "#2f3131",
+                        "surface-variant": "#353434",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-tertiary-fixed": "#1f1b19",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#c4c7c8",
+                        "on-primary-fixed-variant": "#454747",
+                        "secondary": "#c7c6c6",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#eae1dd",
+                        "on-primary-fixed": "#1a1c1c",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#201f1f",
+                        "on-primary": "#2f3131",
+                        "outline-variant": "#262626", /* Hairline override */
+                        "secondary-container": "#484949",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-surface": "#e5e2e1",
+                        "outline": "#333333",
+                        "secondary-fixed": "#e3e2e2",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface": "#141313",
+                        "surface-bright": "#3a3939",
+                        "primary-fixed": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#4b4643",
+                        "on-surface": "#e5e2e1",
+                        "surface-tint": "#c6c6c7",
+                        "background": "#141313",
+                        "on-tertiary": "#342f2d",
+                        "surface-container-highest": "#353434",
+                        "tertiary-container": "#eae1dd",
+                        "inverse-primary": "#5d5f5f",
+                        "surface-dim": "#141313",
+                        "tertiary-fixed-dim": "#cec5c1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "margin-desktop": "32px",
+                        "xs": "4px",
+                        "base": "4px",
+                        "md": "16px",
+                        "gutter": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "title-lg-mobile": ["Instrument Sans"],
+                        "display": ["Instrument Sans"],
+                        "heading": ["Instrument Sans"],
+                        "label": ["Instrument Sans"],
+                        "mono-data": ["JetBrains Mono"],
+                        "title-lg": ["Instrument Sans"],
+                        "body": ["Instrument Sans"],
+                        "caption": ["Instrument Sans"]
+                    },
+                    "fontSize": {
+                        "title-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "heading": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .tap-highlight-none { -webkit-tap-highlight-color: transparent; }
+        /* Hide scrollbar for clean app feel */
+        ::-webkit-scrollbar { display: none; }
+        html { scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface h-screen flex flex-col font-body antialiased selection:bg-surface-variant selection:text-primary overflow-hidden">
+<!-- Status Bar (Simulated) -->
+<div class="h-6 w-full shrink-0"></div>
+<!-- App Bar -->
+<header class="flex items-center justify-between px-margin-mobile py-sm w-full shrink-0">
+<button class="text-on-surface hover:text-primary transition-colors tap-highlight-none">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<button class="text-on-surface hover:text-primary transition-colors tap-highlight-none">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto">
+<!-- Title -->
+<div class="px-margin-mobile pt-sm pb-md">
+<h1 class="font-title-lg-mobile text-title-lg-mobile text-primary tracking-tight">Project Room</h1>
+</div>
+<!-- Member Section -->
+<div class="px-margin-mobile pb-lg flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-primary font-heading border border-outline-variant">T</div>
+<span class="font-label text-label text-on-surface-variant mt-2 uppercase tracking-widest text-[10px] text-center w-full block">Admin</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-primary font-heading border border-outline-variant">R</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-primary font-heading border border-outline-variant">A</div>
+</div>
+</div>
+<!-- Tabs -->
+<div class="px-margin-mobile flex gap-lg relative">
+<div class="pb-3 border-b-2 border-primary text-primary font-body font-semibold">Tasks</div>
+<div class="pb-3 text-on-surface-variant font-body">Activity</div>
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-outline-variant -z-10"></div>
+</div>
+<!-- Task List -->
+<div class="flex flex-col mt-xs">
+<!-- Row 1 -->
+<div class="px-margin-mobile py-md flex items-start border-b border-outline-variant active:bg-surface-variant transition-colors tap-highlight-none">
+<div class="w-20 shrink-0 pt-1">
+<span class="font-mono-data text-mono-data text-on-surface-variant flex items-baseline gap-1">
+                        5:00<span class="text-[10px]">PM</span>
+</span>
+</div>
+<div class="flex-1 flex flex-col justify-center pr-4">
+<div class="text-body font-body text-primary font-medium">Build API</div>
+<div class="flex items-center gap-xs mt-1">
+<div class="w-4 h-4 rounded-full bg-surface-variant border border-outline-variant flex items-center justify-center text-[9px] text-primary">T</div>
+<span class="font-caption text-caption text-on-surface-variant">Tejas</span>
+</div>
+</div>
+<div class="pt-1 shrink-0">
+<span class="material-symbols-outlined text-outline font-light">radio_button_unchecked</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="px-margin-mobile py-md flex items-start border-b border-outline-variant active:bg-surface-variant transition-colors tap-highlight-none">
+<div class="w-20 shrink-0 pt-1">
+<span class="font-mono-data text-mono-data text-on-surface-variant flex items-baseline gap-1">
+                        7:00<span class="text-[10px]">PM</span>
+</span>
+</div>
+<div class="flex-1 flex flex-col justify-center pr-4">
+<div class="text-body font-body text-primary font-medium">Build UI</div>
+<div class="flex items-center gap-xs mt-1">
+<div class="w-4 h-4 rounded-full bg-surface-variant border border-outline-variant flex items-center justify-center text-[9px] text-primary">R</div>
+<span class="font-caption text-caption text-on-surface-variant">Rahul · <span class="text-primary font-medium">due soon</span></span>
+</div>
+</div>
+<div class="pt-1 shrink-0">
+<span class="material-symbols-outlined text-outline font-light">radio_button_unchecked</span>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="px-margin-mobile py-md flex items-start border-b border-outline-variant active:bg-surface-variant transition-colors tap-highlight-none">
+<div class="w-20 shrink-0 pt-1">
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mt-1 block">Tmrw</span>
+</div>
+<div class="flex-1 flex flex-col justify-center pr-4">
+<div class="text-body font-body text-primary font-medium">Testing</div>
+<div class="flex items-center gap-xs mt-1">
+<div class="w-4 h-4 rounded-full bg-surface-variant border border-outline-variant flex items-center justify-center text-[9px] text-primary">A</div>
+<span class="font-caption text-caption text-on-surface-variant">Amit</span>
+</div>
+</div>
+<div class="pt-1 shrink-0">
+<span class="material-symbols-outlined text-outline font-light">radio_button_unchecked</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Input Bar (Pinned Bottom) -->
+<div class="shrink-0 px-margin-mobile py-sm border-t border-outline-variant bg-surface-container-lowest pb-8 pt-4">
+<div class="flex items-center bg-surface-container-lowest rounded-full pl-3 pr-1 py-1 border border-outline focus-within:border-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant ml-1 mr-2">add</span>
+<input class="flex-1 bg-transparent border-none text-body text-primary placeholder:text-on-surface-variant outline-none py-2" placeholder="Add a shared todo..." type="text"/>
+<button class="w-10 h-10 rounded-full bg-inverse-surface text-surface-container-lowest flex items-center justify-center hover:opacity-90 transition-opacity ml-2 tap-highlight-none">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Task Detail - INK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-container": "#eae1dd",
+                        "on-surface": "#e5e2e1",
+                        "primary-container": "#e2e2e2",
+                        "inverse-on-surface": "#313030",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#c4c7c8",
+                        "on-primary": "#2f3131",
+                        "on-secondary-fixed-variant": "#464747",
+                        "primary-fixed": "#e2e2e2",
+                        "on-primary-fixed-variant": "#454747",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "outline-variant": "#444748",
+                        "on-secondary": "#2f3131",
+                        "on-error": "#690005",
+                        "secondary": "#c7c6c6",
+                        "surface-container-high": "#2a2a2a",
+                        "background": "#141313",
+                        "surface-variant": "#353434",
+                        "primary": "#ffffff",
+                        "tertiary-fixed-dim": "#cec5c1",
+                        "on-tertiary-fixed-variant": "#4b4643",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed": "#eae1dd",
+                        "tertiary": "#ffffff",
+                        "surface": "#141313",
+                        "on-tertiary": "#342f2d",
+                        "on-secondary-container": "#b8b8b8",
+                        "surface-container": "#201f1f",
+                        "on-tertiary-container": "#696360",
+                        "on-tertiary-fixed": "#1f1b19",
+                        "inverse-primary": "#5d5f5f",
+                        "secondary-fixed": "#e3e2e2",
+                        "surface-dim": "#141313",
+                        "surface-bright": "#3a3939",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#636565",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-container-low": "#1c1b1b",
+                        "outline": "#8e9192",
+                        "surface-container-highest": "#353434",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-background": "#e5e2e1",
+                        "surface-tint": "#c6c6c7",
+                        "secondary-container": "#484949"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "md": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    fontFamily: {
+                        "caption": ["Instrument Sans"],
+                        "mono-data": ["JetBrains Mono"],
+                        "title-lg": ["Instrument Sans"],
+                        "display": ["Instrument Sans"],
+                        "body": ["Instrument Sans"],
+                        "heading": ["Instrument Sans"],
+                        "label": ["Instrument Sans"],
+                        "title-lg-mobile": ["Instrument Sans"]
+                    },
+                    fontSize: {
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "heading": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "title-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .hairline-b { border-bottom: 1px solid #262626; }
+        .hairline-t { border-top: 1px solid #262626; }
+        .hairline-border { border: 1px solid #262626; }
+        .input-stroke { border: 1px solid #333333; }
+        
+        /* Scrim animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+        .animate-slide-up { animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased h-screen w-screen overflow-hidden flex flex-col relative selection:bg-inverse-surface selection:text-background">
+<!-- Dimmed Background (Project Room mock) -->
+<div aria-hidden="true" class="absolute inset-0 bg-surface-container-lowest flex flex-col p-margin-mobile pt-12 z-0">
+<div class="w-full flex justify-between items-center mb-lg opacity-40">
+<span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+<div class="font-heading text-heading text-on-surface">Design System</div>
+<span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'FILL' 0;">more_horiz</span>
+</div>
+<div class="flex-1 opacity-20">
+<div class="w-full h-24 border border-outline-variant rounded mb-md"></div>
+<div class="w-full h-32 border border-outline-variant rounded mb-md"></div>
+</div>
+</div>
+<!-- Scrim -->
+<div aria-hidden="true" class="absolute inset-0 bg-background/80 backdrop-blur-sm z-10 animate-fade-in"></div>
+<!-- Bottom Sheet -->
+<div class="absolute bottom-0 left-0 w-full bg-surface-container rounded-t-lg z-20 flex flex-col shadow-2xl animate-slide-up h-[751px] max-h-[800px] border-t border-outline-variant">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center pt-md pb-xs">
+<div class="w-12 h-1 rounded-full bg-outline-variant"></div>
+</div>
+<div class="flex-1 overflow-y-auto px-margin-mobile pb-md pt-sm custom-scrollbar">
+<!-- Header Row -->
+<div class="flex justify-between items-center w-full mb-lg">
+<h1 class="font-heading text-heading font-semibold text-primary tracking-tight">Build UI</h1>
+<div class="w-6 h-6 rounded-full border border-outline-variant flex items-center justify-center cursor-pointer hover:bg-surface-variant transition-colors">
+<!-- Checkbox empty state -->
+</div>
+</div>
+<!-- Detail Rows -->
+<div class="flex flex-col w-full mb-xl">
+<!-- Assignee -->
+<div class="flex justify-between items-center w-full py-md hairline-b hairline-t">
+<div class="font-label text-label text-on-surface-variant uppercase">Assignee</div>
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface-variant flex items-center justify-center font-caption text-caption text-primary">R</div>
+<div class="font-body text-body text-primary text-sm font-medium">Rahul</div>
+</div>
+</div>
+<!-- Due -->
+<div class="flex justify-between items-center w-full py-md hairline-b">
+<div class="font-label text-label text-on-surface-variant uppercase">Due</div>
+<div class="font-mono-data text-mono-data text-primary text-sm">Today · 7:00 PM</div>
+</div>
+<!-- Repeat -->
+<div class="flex justify-between items-center w-full py-md hairline-b">
+<div class="font-label text-label text-on-surface-variant uppercase">Repeat</div>
+<div class="font-body text-body text-primary text-sm font-medium">None</div>
+</div>
+<!-- Priority -->
+<div class="flex justify-between items-center w-full py-md hairline-b">
+<div class="font-label text-label text-on-surface-variant uppercase">Priority</div>
+<div class="font-body text-body text-primary text-sm font-medium">Medium</div>
+</div>
+</div>
+<!-- Comments Section -->
+<div class="font-label text-label text-on-surface-variant uppercase mb-md">Comments</div>
+<div class="flex flex-col gap-lg mb-md">
+<!-- Comment 1 -->
+<div class="flex gap-md w-full">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex-shrink-0 flex items-center justify-center font-caption text-caption text-primary mt-1">T</div>
+<div class="flex flex-col w-full">
+<div class="flex items-baseline gap-sm mb-xs">
+<span class="font-caption text-caption font-semibold text-primary">Tejas</span>
+<span class="font-mono-data text-mono-data text-[10px] text-on-surface-variant opacity-70">10:50 AM</span>
+</div>
+<p class="font-body text-body text-on-surface text-sm">Keep it strictly monochrome like the mockups.</p>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="flex gap-md w-full">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex-shrink-0 flex items-center justify-center font-caption text-caption text-primary mt-1">R</div>
+<div class="flex flex-col w-full">
+<div class="flex items-baseline gap-sm mb-xs">
+<span class="font-caption text-caption font-semibold text-primary">Rahul</span>
+<span class="font-mono-data text-mono-data text-[10px] text-on-surface-variant opacity-70">11:02 AM</span>
+</div>
+<p class="font-body text-body text-on-surface text-sm">On it — pushing a draft tonight.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Actions -->
+<div class="px-margin-mobile py-md bg-surface-container border-t border-outline-variant flex flex-col gap-md">
+<!-- Mark Complete Button -->
+<button class="w-full bg-primary text-surface-container-lowest font-body text-body font-semibold py-3 rounded-full hover:opacity-90 active:scale-[0.98] transition-all flex justify-center items-center">
+                Mark complete
+            </button>
+<!-- Comment Input -->
+<div class="relative w-full flex items-center">
+<input class="w-full bg-transparent input-stroke rounded-full py-3 pl-md pr-12 font-body text-body text-primary placeholder-on-surface-variant focus:outline-none focus:border-outline-variant transition-colors" placeholder="Add a comment…" type="text"/>
+<button class="absolute right-xs top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-inverse-surface flex items-center justify-center hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-surface-container-lowest text-sm" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
