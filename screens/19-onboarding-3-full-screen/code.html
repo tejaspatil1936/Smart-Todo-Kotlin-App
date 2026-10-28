@@ -1,167 +1,59 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Onboarding Permissions - Step 3</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-error-container": "#ffdad6",
-                        "tertiary-fixed": "#eae1dd",
-                        "on-error": "#690005",
-                        "outline-variant": "#444748",
-                        "secondary": "#c7c6c6",
-                        "surface-container": "#201f1f",
-                        "surface-container-low": "#1c1b1b",
-                        "primary-fixed-dim": "#c6c6c7",
-                        "error": "#ffb4ab",
-                        "surface-tint": "#c6c6c7",
-                        "primary-container": "#e2e2e2",
-                        "on-secondary": "#2f3131",
-                        "background": "#141313",
-                        "on-tertiary-container": "#696360",
-                        "on-surface": "#e5e2e1",
-                        "inverse-surface": "#e5e2e1",
-                        "tertiary-fixed-dim": "#cec5c1",
-                        "on-primary-fixed-variant": "#454747",
-                        "inverse-primary": "#5d5f5f",
-                        "on-surface-variant": "#c4c7c8",
-                        "secondary-fixed": "#e3e2e2",
-                        "on-primary": "#2f3131",
-                        "error-container": "#93000a",
-                        "on-tertiary": "#342f2d",
-                        "tertiary": "#ffffff",
-                        "inverse-on-surface": "#313030",
-                        "on-primary-fixed": "#1a1c1c",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "surface-container-highest": "#353434",
-                        "surface-container-high": "#2a2a2a",
-                        "primary-fixed": "#e2e2e2",
-                        "on-primary-container": "#636565",
-                        "on-background": "#e5e2e1",
-                        "on-tertiary-fixed": "#1f1b19",
-                        "secondary-container": "#484949",
-                        "on-secondary-container": "#b8b8b8",
-                        "surface-bright": "#3a3939",
-                        "on-secondary-fixed-variant": "#464747",
-                        "surface-container-lowest": "#0e0e0e",
-                        "primary": "#ffffff",
-                        "on-tertiary-fixed-variant": "#4b4643",
-                        "tertiary-container": "#eae1dd",
-                        "outline": "#8e9192",
-                        "surface-dim": "#141313",
-                        "secondary-fixed-dim": "#c7c6c6",
-                        "surface-variant": "#353434",
-                        "surface": "#141313"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "margin-desktop": "32px",
-                        "xs": "4px",
-                        "base": "4px",
-                        "margin-mobile": "16px",
-                        "gutter": "16px",
-                        "lg": "24px",
-                        "md": "16px",
-                        "xl": "32px",
-                        "sm": "8px"
-                    },
-                    "fontFamily": {
-                        "title-lg-mobile": ["Instrument Sans"],
-                        "display": ["Instrument Sans"],
-                        "body": ["Instrument Sans"],
-                        "title-lg": ["Instrument Sans"],
-                        "heading": ["Instrument Sans"],
-                        "mono-data": ["JetBrains Mono"],
-                        "caption": ["Instrument Sans"],
-                        "label": ["Instrument Sans"]
-                    },
-                    "fontSize": {
-                        "title-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
-                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-                        "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "title-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "heading": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
-                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
-                        "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }]
-                    }
-                }
-            }
-        }
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>INK — Setup 3 of 4</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../_shared/ink-tailwind.js"></script>
+<link rel="stylesheet" href="../_shared/ink.css"/>
 <style>
-        body {
-            background-color: #0C0C0C; /* Using hex as requested in prompt despite config */
-        }
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 100,
-            'GRAD' 0,
-            'opsz' 24;
-        }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+  /* Onboarding template — identical across steps 1–4 (screens 17–20).
+     Content is top-anchored, not vertically centred, so the icon and title
+     sit at the same y on every step whatever the body length. */
+  .onb-body { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(40px, 14dvh, 140px) var(--gutter) 0; }
+  .onb-icon { position: relative; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; color: var(--text-1); }
+  .onb-glyph { font-size: 64px; }
+  .onb-inner { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 22px; }
+  .onb-body h1 { margin-top: var(--gap-lg); }
+  .onb-body p { margin-top: 12px; max-width: 32ch; color: var(--text-2); }
+  .onb-actions { flex: none; padding: 0 var(--gutter); }
+  .onb-actions .btn-text { color: var(--text-2); }
+  .onb-steps { flex: none; display: flex; justify-content: center; gap: 6px; padding: var(--gap-md) var(--gutter) calc(var(--gap-lg) + env(safe-area-inset-bottom)); color: var(--text-2); font-size: 11px; }
+  .onb-steps [aria-current="step"] { color: var(--text-1); }
+</style>
 </head>
-<body class="h-screen w-full flex flex-col items-center justify-between text-on-surface p-margin-mobile md:p-margin-desktop font-body">
-<!-- Top: Progress Dots -->
-<div class="flex flex-row justify-center items-center space-x-2 pt-8">
-<div class="w-2 h-2 rounded-full border border-outline-variant"></div>
-<div class="w-2 h-2 rounded-full border border-outline-variant"></div>
-<div class="w-2 h-2 rounded-full bg-primary"></div>
-<div class="w-2 h-2 rounded-full border border-outline-variant"></div>
+<body>
+<div class="screen">
+  <div class="statusbar" aria-hidden="true"><span>9:41</span><span class="sb-icons"><span class="icon">signal_cellular_alt</span><span class="icon">wifi</span><span class="icon">battery_full</span></span></div>
+
+  <div class="pager" role="img" aria-label="Step 3 of 4">
+    <span></span>
+    <span></span>
+    <span aria-current="step"></span>
+    <span></span>
+  </div>
+
+  <main class="onb-body">
+    <div class="onb-icon" aria-hidden="true"><span class="icon onb-glyph">smartphone</span><span class="icon onb-inner">alarm</span></div>
+    <h1 class="t-title">Wake your screen</h1>
+    <p class="t-body">Allow the app to show reminders even when your phone is locked. This lets you see and snooze tasks without having to unlock first.</p>
+  </main>
+
+  <div class="onb-actions btn-stack">
+    <button class="btn btn-primary">Allow full-screen reminders</button>
+    <button class="btn btn-text">Later</button>
+  </div>
+
+  <p class="onb-steps t-label" aria-label="Setup steps: notifications, exact alarms, full-screen, battery">
+    <span>1 NOTIFY</span>
+    <span aria-hidden="true">·</span>
+    <span>2 ALARMS</span>
+    <span aria-hidden="true">·</span>
+    <span aria-current="step">3 SCREEN</span>
+    <span aria-hidden="true">·</span>
+    <span>4 BATTERY</span>
+  </p>
 </div>
-<!-- Flexible space -->
-<div class="flex-grow"></div>
-<!-- Center: Content -->
-<div class="flex flex-col items-center max-w-sm w-full mx-auto space-y-6">
-<!-- Icon -->
-<span class="material-symbols-outlined text-[64px] text-primary" data-icon="alarm">
-            alarm
-        </span>
-<!-- Title -->
-<h1 class="font-title-lg-mobile text-title-lg-mobile md:font-title-lg md:text-title-lg text-primary text-center">
-            Wake your screen
-        </h1>
-<!-- Body -->
-<p class="font-body text-body text-secondary text-center px-4">
-            Allow the app to show reminders even when your phone is locked. This lets you see and snooze tasks without having to unlock first.
-        </p>
-</div>
-<!-- Flexible space -->
-<div class="flex-grow"></div>
-<!-- Bottom: Actions & Caption -->
-<div class="flex flex-col items-center w-full max-w-sm mx-auto space-y-6 pb-4">
-<!-- Action Buttons -->
-<div class="flex flex-col items-center w-full space-y-4">
-<button class="w-full py-4 px-6 rounded-full bg-[#FFFFFF] text-[#0C0C0C] font-label text-label text-center">
-                Allow full-screen reminders
-            </button>
-<button class="py-3 px-6 text-secondary font-label text-label text-center">
-                Later
-            </button>
-</div>
-<!-- Caption -->
-<div class="font-label text-label text-outline-variant text-center w-full px-4">
-            1 NOTIFY · 2 ALARMS · 3 SCREEN · 4 BATTERY
-        </div>
-</div>
-</body></html>
+</body>
+</html>

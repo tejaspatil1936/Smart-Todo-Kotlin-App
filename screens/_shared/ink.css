@@ -5,7 +5,7 @@
  * these classes; they should not restate colors, sizes or radii inline.
  */
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0&display=block");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0&display=block");
 
 :root {
   /* Grey ladder */
@@ -567,3 +567,9 @@ button.list-row:active, a.list-row:active { background: var(--surface); }
 
 /* Colour utilities must beat component defaults when composed on them. */
 .btn.t-2, .list-row .t-2, .icon-btn.t-2, .snackbar .t-2 { color: var(--text-2); }
+
+/* Controls whose visual size is pinned below 48dp (chips 32, segments, switch)
+   get an invisible hit area that reaches the 48dp minimum touch target. */
+.chip, .segmented > button, .switch, .day { position: relative; }
+.chip::after, .segmented > button::after, .day::after { content: ""; position: absolute; inset: -8px 0; }
+.switch::before { content: ""; position: absolute; inset: -9px -4px; }

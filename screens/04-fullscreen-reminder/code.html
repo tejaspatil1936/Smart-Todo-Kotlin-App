@@ -1,199 +1,67 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Todo Reminder</title>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind Config -->
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-secondary-container": "#b8b8b8",
-                        "primary": "#ffffff",
-                        "on-primary-fixed-variant": "#454747",
-                        "outline-variant": "#444748",
-                        "secondary-fixed": "#e3e2e2",
-                        "secondary": "#c7c6c6",
-                        "surface-container-highest": "#353434",
-                        "inverse-on-surface": "#313030",
-                        "surface-dim": "#141313",
-                        "surface-tint": "#c6c6c7",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "outline": "#8e9192",
-                        "on-tertiary-fixed-variant": "#4b4643",
-                        "on-primary-fixed": "#1a1c1c",
-                        "on-tertiary-container": "#696360",
-                        "inverse-surface": "#e5e2e1",
-                        "on-secondary": "#2f3131",
-                        "tertiary-container": "#eae1dd",
-                        "tertiary-fixed-dim": "#cec5c1",
-                        "primary-fixed": "#e2e2e2",
-                        "surface-container-low": "#1c1b1b",
-                        "on-tertiary-fixed": "#1f1b19",
-                        "surface-bright": "#3a3939",
-                        "on-secondary-fixed-variant": "#464747",
-                        "surface-container-lowest": "#0e0e0e",
-                        "on-error-container": "#ffdad6",
-                        "primary-fixed-dim": "#c6c6c7",
-                        "surface-variant": "#353434",
-                        "surface": "#141313",
-                        "tertiary-fixed": "#eae1dd",
-                        "surface-container": "#201f1f",
-                        "on-primary": "#2f3131",
-                        "on-error": "#690005",
-                        "secondary-fixed-dim": "#c7c6c6",
-                        "tertiary": "#ffffff",
-                        "error": "#ffb4ab",
-                        "primary-container": "#e2e2e2",
-                        "on-tertiary": "#342f2d",
-                        "on-surface": "#e5e2e1",
-                        "on-primary-container": "#636565",
-                        "secondary-container": "#484949",
-                        "on-background": "#e5e2e1",
-                        "background": "#141313",
-                        "error-container": "#93000a",
-                        "on-surface-variant": "#c4c7c8",
-                        "surface-container-high": "#2a2a2a",
-                        "inverse-primary": "#5d5f5f"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "lg": "24px",
-                        "xl": "32px",
-                        "md": "16px",
-                        "gutter": "16px",
-                        "sm": "8px",
-                        "margin-mobile": "16px",
-                        "base": "4px",
-                        "xs": "4px",
-                        "margin-desktop": "32px"
-                    },
-                    "fontFamily": {
-                        "display": ["Instrument Sans", "sans-serif"],
-                        "title-lg": ["Instrument Sans", "sans-serif"],
-                        "title-lg-mobile": ["Instrument Sans", "sans-serif"],
-                        "heading": ["Instrument Sans", "sans-serif"],
-                        "mono-data": ["jetbrainsMono", "monospace"],
-                        "label": ["Instrument Sans", "sans-serif"],
-                        "body": ["Instrument Sans", "sans-serif"],
-                        "caption": ["Instrument Sans", "sans-serif"]
-                    },
-                    "fontSize": {
-                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-                        "title-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "title-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
-                        "heading": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
-                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                        "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
-                    }
-                }
-            }
-        }
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>INK — Reminder</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../_shared/ink-tailwind.js"></script>
+<link rel="stylesheet" href="../_shared/ink.css"/>
 <style>
-        @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;700&display=swap');
-        
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        
-        .material-symbols-outlined.fill {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+  /* Fullscreen reminder: the app's only all-white screen */
+  html, body { background: var(--inv); }
+  .alarm { background: var(--inv); color: var(--on-inv); }
+  .alarm-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--gap-xl) var(--gutter) 0; }
+  .alarm-body .t-label { color: var(--on-inv-2); }
+  .alarm-time { margin-top: var(--gap-lg); gap: 6px; }
+  .alarm-time .mer { font-size: 28px; opacity: 1; letter-spacing: 0; }
+  .alarm-title { margin-top: var(--gap-md); max-width: 100%; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .chip-solid { margin-top: var(--gap-md); height: 28px; padding: 0 12px; border-radius: 999px; background: var(--on-inv); color: var(--inv); display: inline-flex; align-items: center; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .alarm-caption { margin-top: var(--gap-md); color: var(--on-inv-2); white-space: nowrap; }
+  .alarm-foot { flex: none; padding: 0 var(--gutter) calc(var(--gap-xl) + env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: stretch; }
+  .alarm-foot .hint { margin-top: var(--gap-lg); text-align: center; color: var(--on-inv-2); white-space: nowrap; }
 
-        /* Fluid sizing for large mono time display to respect INK philosophy while achieving requested scale */
-        .text-hero-mono {
-            font-size: clamp(64px, 15vw, 96px);
-            line-height: 1;
-        }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+  /* SLIDE CONTROL: 72px track, 56px end circles + puck, 8px inset */
+  .slide { position: relative; height: 72px; padding: 8px; border-radius: 999px; background: var(--track); display: flex; align-items: center; justify-content: space-between; touch-action: none; user-select: none; }
+  .slide-end { position: relative; z-index: 2; width: 56px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; flex: none; color: var(--on-inv); transition: opacity var(--press) var(--ease-out); }
+  .slide-end.is-later { border: 1.5px solid var(--on-inv); }
+  .slide-end.is-done { background: var(--on-inv); color: var(--inv); }
+  .slide-end:active { opacity: 0.72; }
+  .slide-chev { position: absolute; top: 50%; transform: translateY(-50%); display: inline-flex; color: var(--on-inv-2); opacity: 0.55; z-index: 1; pointer-events: none; }
+  .slide-chev .icon { font-size: 18px; width: 12px; overflow: visible; }
+  .slide-chev.is-left { left: 76px; }
+  .slide-chev.is-right { right: 76px; }
+  .slide-puck { position: absolute; z-index: 3; top: 50%; left: 50%; width: 56px; height: 56px; transform: translate(-50%, -50%); border-radius: 999px; background: var(--on-inv); color: var(--inv); display: inline-flex; align-items: center; justify-content: center; cursor: grab; }
+  .slide-labels { display: flex; justify-content: space-between; padding: 0 8px; margin-top: var(--gap-sm); }
+  .slide-labels span { width: 56px; display: flex; justify-content: center; white-space: nowrap; font-size: 13px; line-height: 18px; }
+  .slide-labels .is-later { color: var(--on-inv-2); font-weight: 500; }
+  .slide-labels .is-done { color: var(--on-inv); font-weight: 600; }
+</style>
 </head>
-<body class="bg-inverse-surface text-inverse-on-surface font-body antialiased min-h-[884px] flex flex-col justify-between items-center px-margin-mobile py-xl selection:bg-inverse-on-surface selection:text-inverse-surface">
-<!-- Top Spacer for vertical balance -->
-<div class="flex-none h-12"></div>
-<!-- Main Content Area (Centered) -->
-<main class="flex-1 flex flex-col items-center justify-center w-full max-w-md text-center">
-<!-- Label -->
-<span class="font-label text-label text-inverse-on-surface/70 uppercase tracking-[0.2em] mb-lg">
-            TODO DUE
-        </span>
-<!-- Time -->
-<div class="flex items-baseline justify-center gap-xs mb-lg">
-<span class="font-mono-data text-hero-mono text-inverse-on-surface font-bold">5:00</span>
-<span class="font-mono-data text-caption text-inverse-on-surface">PM</span>
+<body class="on-light">
+<div class="screen alarm on-light">
+  <main class="alarm-body" aria-live="polite">
+    <span class="t-label">Todo due</span>
+    <span class="time t-display alarm-time">5:00<span class="mer">PM</span></span>
+    <h1 class="t-title alarm-title">Project Meeting</h1>
+    <span class="chip-solid">High</span>
+    <p class="t-caption alarm-caption">Due now · Sat, Aug 23</p>
+  </main>
+
+  <div class="alarm-foot">
+    <div class="slide">
+      <button class="slide-end is-later" aria-label="Remind me later"><span class="icon">snooze</span></button>
+      <span class="slide-chev is-left" aria-hidden="true"><span class="icon">chevron_left</span><span class="icon">chevron_left</span><span class="icon">chevron_left</span></span>
+      <span class="slide-puck" role="slider" tabindex="0" aria-label="Slide right to finish, left to snooze" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0"><span class="icon">notifications</span></span>
+      <span class="slide-chev is-right" aria-hidden="true"><span class="icon">chevron_right</span><span class="icon">chevron_right</span><span class="icon">chevron_right</span></span>
+      <button class="slide-end is-done" aria-label="Done"><span class="icon">check</span></button>
+    </div>
+    <div class="slide-labels" aria-hidden="true">
+      <span class="is-later">Later</span>
+      <span class="is-done">Done</span>
+    </div>
+    <p class="t-caption hint">Slide right to finish · left to snooze</p>
+  </div>
 </div>
-<!-- Title -->
-<h1 class="font-title-lg-mobile text-title-lg-mobile text-inverse-on-surface mb-md">
-            Project Meeting
-        </h1>
-<!-- Chip -->
-<div class="inline-flex items-center justify-center px-4 py-1.5 bg-inverse-on-surface rounded-full mb-md">
-<span class="font-label text-label text-inverse-surface font-bold">
-                High
-            </span>
-</div>
-<!-- Caption -->
-<p class="font-caption text-caption text-inverse-on-surface/70">
-            Due now · Sat, Aug 23
-        </p>
-</main>
-<!-- Slide Control Area -->
-<div class="flex-none w-full max-w-md flex flex-col items-center pb-md">
-<!-- Interactive Track -->
-<div class="relative w-full h-16 bg-inverse-surface rounded-full flex items-center justify-between px-2 border border-inverse-on-surface/30 overflow-hidden group select-none touch-none">
-<!-- Left Snooze Action -->
-<div class="w-12 h-12 rounded-full border border-inverse-on-surface/30 flex items-center justify-center bg-transparent shrink-0 relative z-10 transition-colors group-active:border-inverse-on-surface">
-<span class="material-symbols-outlined text-inverse-on-surface/50 group-active:text-inverse-on-surface transition-colors text-[20px]">snooze</span>
-</div>
-<!-- Left Chevrons -->
-<div class="absolute left-[72px] flex items-center text-inverse-on-surface/30 -space-x-2">
-<span class="material-symbols-outlined text-[16px]">chevron_left</span>
-<span class="material-symbols-outlined text-[16px]">chevron_left</span>
-<span class="material-symbols-outlined text-[16px]">chevron_left</span>
-</div>
-<!-- Draggable Center Puck -->
-<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-inverse-on-surface flex items-center justify-center z-20 cursor-grab active:cursor-grabbing hover:scale-105 active:scale-95 transition-transform shadow-lg">
-<span class="material-symbols-outlined text-inverse-surface fill text-[20px]">notifications</span>
-</div>
-<!-- Right Chevrons -->
-<div class="absolute right-[72px] flex items-center text-inverse-on-surface/30 -space-x-2">
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
-</div>
-<!-- Right Done Action -->
-<div class="w-12 h-12 rounded-full bg-inverse-on-surface flex items-center justify-center shrink-0 relative z-10 opacity-90 hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-inverse-surface font-bold text-[20px]">check</span>
-</div>
-</div>
-<!-- Action Labels -->
-<div class="w-full flex justify-between px-4 mt-sm">
-<span class="font-caption text-caption text-inverse-on-surface/70">Later</span>
-<span class="font-caption text-caption text-inverse-on-surface font-bold">Done</span>
-</div>
-<!-- Instructional Caption -->
-<p class="font-caption text-caption text-inverse-on-surface/50 mt-lg">
-            Slide right to finish · left to snooze
-        </p>
-</div>
-</body></html>
+</body>
+</html>

@@ -1,144 +1,49 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Android Widget</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "tertiary": "#ffffff",
-                        "inverse-on-surface": "#313030",
-                        "on-tertiary-container": "#696360",
-                        "on-primary-fixed-variant": "#454747",
-                        "secondary-container": "#484949",
-                        "surface-dim": "#141313",
-                        "on-tertiary": "#342f2d",
-                        "secondary-fixed": "#e3e2e2",
-                        "error-container": "#93000a",
-                        "secondary-fixed-dim": "#c7c6c6",
-                        "on-primary-container": "#636565",
-                        "surface-variant": "#353434",
-                        "surface-container-lowest": "#0e0e0e",
-                        "on-tertiary-fixed": "#1f1b19",
-                        "surface-container": "#201f1f",
-                        "inverse-surface": "#e5e2e1",
-                        "tertiary-fixed-dim": "#cec5c1",
-                        "on-surface": "#e5e2e1",
-                        "error": "#ffb4ab",
-                        "primary-fixed-dim": "#c6c6c7",
-                        "on-surface-variant": "#c4c7c8",
-                        "on-tertiary-fixed-variant": "#4b4643",
-                        "primary-container": "#e2e2e2",
-                        "primary": "#ffffff",
-                        "inverse-primary": "#5d5f5f",
-                        "surface-tint": "#c6c6c7",
-                        "surface-container-highest": "#353434",
-                        "on-primary": "#2f3131",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "surface-container-low": "#1c1b1b",
-                        "tertiary-container": "#eae1dd",
-                        "outline-variant": "#444748",
-                        "tertiary-fixed": "#eae1dd",
-                        "on-background": "#e5e2e1",
-                        "surface-bright": "#3a3939",
-                        "surface-container-high": "#2a2a2a",
-                        "outline": "#8e9192",
-                        "on-error": "#690005",
-                        "on-secondary-fixed-variant": "#464747",
-                        "background": "#141313",
-                        "on-error-container": "#ffdad6",
-                        "on-primary-fixed": "#1a1c1c",
-                        "on-secondary": "#2f3131",
-                        "secondary": "#c7c6c6",
-                        "surface": "#141313",
-                        "on-secondary-container": "#b8b8b8",
-                        "primary-fixed": "#e2e2e2"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "margin-mobile": "16px",
-                        "base": "4px",
-                        "md": "16px",
-                        "sm": "8px",
-                        "xs": "4px",
-                        "margin-desktop": "32px",
-                        "xl": "32px",
-                        "gutter": "16px",
-                        "lg": "24px"
-                    },
-                    "fontFamily": {
-                        "label": ["Instrument Sans"],
-                        "mono-data": ["JetBrains Mono"],
-                        "caption": ["Instrument Sans"],
-                        "title-lg": ["Instrument Sans"],
-                        "heading": ["Instrument Sans"],
-                        "body": ["Instrument Sans"],
-                        "title-lg-mobile": ["Instrument Sans"],
-                        "display": ["Instrument Sans"]
-                    },
-                    "fontSize": {
-                        "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
-                        "title-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "heading": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
-                        "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "title-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
-                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
-                    }
-                }
-            }
-        }
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>INK — Home widget</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../_shared/ink-tailwind.js"></script>
+<link rel="stylesheet" href="../_shared/ink.css"/>
 <style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+  /* Launcher wallpaper: plain flat dark grey, nothing else on it. */
+  .wallpaper { background: var(--raised); justify-content: center; padding: 0 var(--gutter); }
+  /* 4×2 widget panel: radius 24, inner padding 16, hairline outline. */
+  .widget { background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--sheet-r); padding: var(--gap-md) var(--gap-md) var(--gap-xs); }
+  .widget-head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid var(--hairline); }
+  .widget-row { display: flex; align-items: center; height: 40px; border-bottom: 1px solid var(--hairline); color: var(--text-2); }
+  .widget-row .rail { width: 76px; flex: none; font-size: 14px; line-height: 20px; }
+  .widget-row .title { flex: 1; min-width: 0; font-size: 15px; line-height: 20px; }
+  .widget-row.is-next { color: var(--text-1); }
+  .widget-row.is-next .title { font-weight: 600; }
+  /* "+ Add todo": 48px target whose label sits on the widget's inner left edge. */
+  .widget-add { display: inline-flex; align-items: center; gap: var(--gap-xs); height: var(--target); color: var(--text-1); font-weight: 500; margin-left: -2px; }
+  .widget-add .icon { font-size: 20px; }
+</style>
 </head>
-<body class="bg-[#1c1c1c] text-on-surface h-screen w-screen flex items-center justify-center m-0 p-0 overflow-hidden font-body">
-<!-- Widget Container -->
-<div class="w-[340px] bg-surface-container rounded-[28px] border border-outline-variant p-4 flex flex-col gap-0 shadow-lg">
-<!-- Header Row -->
-<div class="flex justify-between items-center pb-2 border-b border-outline-variant">
-<h2 class="font-body text-body font-semibold text-primary">Today</h2>
-<span class="font-mono-data text-mono-data text-on-surface-variant">3 left</span>
+<body>
+<div class="screen wallpaper">
+  <section class="widget" aria-label="Ink — Today">
+    <div class="widget-head">
+      <span class="t-body w-semibold">Today</span>
+      <span class="t-mono t-caption t-2">3 left</span>
+    </div>
+    <div class="widget-row is-next">
+      <span class="rail time">5:00<span class="mer">PM</span></span>
+      <span class="title truncate">Project Meeting</span>
+    </div>
+    <div class="widget-row">
+      <span class="rail time">7:00<span class="mer">PM</span></span>
+      <span class="title truncate">DSA</span>
+    </div>
+    <div class="widget-row">
+      <span class="rail time">9:00<span class="mer">PM</span></span>
+      <span class="title truncate">Read</span>
+    </div>
+    <button class="widget-add"><span class="icon" aria-hidden="true">add</span>Add todo</button>
+  </section>
 </div>
-<!-- Compact Rows -->
-<div class="flex flex-col">
-<!-- Row 1 (Emphasized) -->
-<div class="flex items-center py-3 border-b border-outline-variant">
-<span class="w-[70px] font-mono-data text-mono-data text-primary shrink-0">5:00 PM</span>
-<span class="font-body text-body font-semibold text-primary">Project Meeting</span>
-</div>
-<!-- Row 2 -->
-<div class="flex items-center py-3 border-b border-outline-variant">
-<span class="w-[70px] font-mono-data text-mono-data text-on-surface-variant shrink-0">7:00 PM</span>
-<span class="font-body text-body text-on-surface-variant">DSA</span>
-</div>
-<!-- Row 3 -->
-<div class="flex items-center py-3 border-b border-outline-variant">
-<span class="w-[70px] font-mono-data text-mono-data text-on-surface-variant shrink-0">9:00 PM</span>
-<span class="font-body text-body text-on-surface-variant">Read</span>
-</div>
-</div>
-<!-- Footer Row -->
-<div class="pt-3 flex items-center">
-<button class="font-body text-body font-medium text-primary hover:text-secondary transition-colors focus:outline-none">
-                + Add todo
-            </button>
-</div>
-</div>
-</body></html>
+</body>
+</html>
