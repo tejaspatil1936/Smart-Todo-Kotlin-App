@@ -1,236 +1,87 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Settings</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "tertiary-container": "#eae1dd",
-                        "surface-container-highest": "#353434",
-                        "on-tertiary-container": "#696360",
-                        "primary-fixed-dim": "#c6c6c7",
-                        "primary-container": "#e2e2e2",
-                        "surface-container-lowest": "#0e0e0e",
-                        "surface-dim": "#141313",
-                        "on-primary-fixed-variant": "#454747",
-                        "error-container": "#93000a",
-                        "tertiary": "#ffffff",
-                        "on-secondary-fixed-variant": "#464747",
-                        "secondary": "#c7c6c6",
-                        "on-surface-variant": "#c4c7c8",
-                        "secondary-fixed": "#e3e2e2",
-                        "on-primary-fixed": "#1a1c1c",
-                        "on-primary": "#2f3131",
-                        "surface-container-low": "#1c1b1b",
-                        "surface-bright": "#3a3939",
-                        "primary-fixed": "#e2e2e2",
-                        "on-secondary": "#2f3131",
-                        "secondary-fixed-dim": "#c7c6c6",
-                        "on-error-container": "#ffdad6",
-                        "secondary-container": "#484949",
-                        "tertiary-fixed-dim": "#cec5c1",
-                        "surface-container": "#201f1f",
-                        "primary": "#ffffff",
-                        "surface": "#141313",
-                        "surface-container-high": "#2a2a2a",
-                        "inverse-surface": "#e5e2e1",
-                        "outline-variant": "#444748",
-                        "on-tertiary": "#342f2d",
-                        "surface-tint": "#c6c6c7",
-                        "surface-variant": "#353434",
-                        "on-secondary-container": "#b8b8b8",
-                        "on-surface": "#e5e2e1",
-                        "on-error": "#690005",
-                        "outline": "#8e9192",
-                        "inverse-on-surface": "#313030",
-                        "background": "#141313",
-                        "on-tertiary-fixed-variant": "#4b4643",
-                        "on-primary-container": "#636565",
-                        "error": "#ffb4ab",
-                        "inverse-primary": "#5d5f5f",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "tertiary-fixed": "#eae1dd",
-                        "on-tertiary-fixed": "#1f1b19",
-                        "on-background": "#e5e2e1"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "md": "16px",
-                        "xs": "4px",
-                        "margin-mobile": "16px",
-                        "lg": "24px",
-                        "xl": "32px",
-                        "margin-desktop": "32px",
-                        "sm": "8px",
-                        "base": "4px",
-                        "gutter": "16px"
-                    },
-                    "fontFamily": {
-                        "heading": ["Instrument Sans"],
-                        "display": ["Instrument Sans"],
-                        "label": ["Instrument Sans"],
-                        "title-lg": ["Instrument Sans"],
-                        "caption": ["Instrument Sans"],
-                        "title-lg-mobile": ["Instrument Sans"],
-                        "mono-data": ["jetbrainsMono", "JetBrains Mono", "monospace"],
-                        "body": ["Instrument Sans"]
-                    },
-                    "fontSize": {
-                        "heading": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
-                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-                        "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                        "title-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
-                        "title-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
-                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
-                    }
-                },
-            },
-        }
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>INK — Settings</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../_shared/ink-tailwind.js"></script>
+<link rel="stylesheet" href="../_shared/ink.css"/>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-        .hairline-b { border-bottom: 1px solid #262626; }
-        .hairline-t { border-top: 1px solid #262626; }
-        body { background-color: #0C0C0C; }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+  /* Attention dot after a row label (permission not fully granted) */
+  .attn-dot { display: inline-block; width: 6px; height: 6px; border-radius: 999px; background: var(--text-1); margin-left: 6px; vertical-align: middle; }
+</style>
 </head>
-<body class="text-primary font-body antialiased selection:bg-surface-container-high pb-24 md:pb-0">
-<!-- Top Navigation (Web) / TopAppBar (Mobile) -->
-<header class="w-full top-0 border-b border-outline-variant dark:border-outline-variant flat no shadows bg-surface dark:bg-surface transition-colors duration-150 ease-in-out z-50 sticky md:hidden flex justify-between items-center px-margin-mobile h-14">
-<div class="flex items-center gap-4">
-<span class="font-label text-label font-bold text-primary dark:text-primary tracking-[0.2em]">SETTINGS</span>
+<body>
+<div class="screen">
+  <div class="statusbar" aria-hidden="true"><span>9:41</span><span class="sb-icons"><span class="icon">signal_cellular_alt</span><span class="icon">wifi</span><span class="icon">battery_full</span></span></div>
+
+  <main class="screen-scroll">
+    <header class="page-head">
+      <div class="row"><h1 class="t-label t-1">Settings</h1></div>
+    </header>
+
+    <div class="gutter pb-6">
+      <section aria-labelledby="sec-account">
+        <div class="section-head"><h2 id="sec-account" class="t-label">Account</h2></div>
+        <button class="list-row border-b-0">
+          <span class="avatar avatar-lg" aria-hidden="true">T</span>
+          <span class="main">
+            <span class="t-body w-medium truncate">Tejas</span>
+            <span class="t-caption t-2 truncate">tejas@gmail.com</span>
+          </span>
+          <span class="icon chev" aria-hidden="true">chevron_right</span>
+        </button>
+        <button class="btn-text t-body text-muted flex items-center">Sign out</button>
+      </section>
+
+      <section aria-labelledby="sec-reminders">
+        <div class="section-head"><h2 id="sec-reminders" class="t-label">Reminders</h2></div>
+        <div class="list-row">
+          <span class="main">
+            <span id="quiet-label" class="t-body">Quiet reminders</span>
+            <span id="quiet-hint" class="t-caption t-2 truncate">Won't override silent or Do Not Disturb</span>
+          </span>
+          <button class="switch" role="switch" aria-checked="false" aria-labelledby="quiet-label" aria-describedby="quiet-hint"></button>
+        </div>
+        <button class="list-row">
+          <span class="main t-body">Morning default</span>
+          <span class="value"><span class="time text-muted">9:00<span class="mer">AM</span></span><span class="icon chev" aria-hidden="true">chevron_right</span></span>
+        </button>
+        <button class="list-row">
+          <span class="main t-body">Evening default</span>
+          <span class="value"><span class="time text-muted">6:00<span class="mer">PM</span></span><span class="icon chev" aria-hidden="true">chevron_right</span></span>
+        </button>
+        <button class="list-row">
+          <span class="main t-body">All-day reminder</span>
+          <span class="value"><span class="time text-muted">9:00<span class="mer">AM</span></span><span class="icon chev" aria-hidden="true">chevron_right</span></span>
+        </button>
+      </section>
+
+      <section aria-labelledby="sec-permissions">
+        <div class="section-head"><h2 id="sec-permissions" class="t-label">Permissions</h2></div>
+        <button class="list-row">
+          <span class="main">
+            <span class="t-body">Reminder permissions<span class="attn-dot" role="img" aria-label="Needs attention"></span></span>
+            <span class="t-caption t-2 truncate">Battery optimization not exempted</span>
+          </span>
+          <span class="icon chev" aria-hidden="true">chevron_right</span>
+        </button>
+      </section>
+
+      <section aria-labelledby="sec-about">
+        <div class="section-head"><h2 id="sec-about" class="t-label">About</h2></div>
+        <div class="list-row"><span class="main t-body t-2">Version 1.0</span></div>
+      </section>
+    </div>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Primary">
+    <a href="#"><span class="dot"></span><span class="icon">calendar_today</span>Today</a>
+    <a href="#"><span class="dot"></span><span class="icon">history</span>History</a>
+    <a href="#"><span class="dot"></span><span class="icon">layers</span>Rooms</a>
+    <a href="#" aria-current="page"><span class="dot"></span><span class="icon">settings</span>Settings</a>
+  </nav>
 </div>
-<div class="flex items-center">
-</div>
-</header>
-<!-- Top Nav Web -->
-<header class="hidden md:flex flex-row justify-between items-center w-full px-margin-desktop py-lg border-b border-outline-variant dark:border-outline-variant sticky top-0 bg-[#0C0C0C]/80 backdrop-blur-md z-50">
-<span class="font-label text-label font-bold text-primary dark:text-primary tracking-[0.2em]">SETTINGS</span>
-<div class="flex gap-lg">
-<span class="font-label text-label uppercase tracking-tighter text-on-surface-variant dark:text-on-surface-variant cursor-pointer hover:text-primary transition-colors">TODAY</span>
-<span class="font-label text-label uppercase tracking-tighter text-on-surface-variant dark:text-on-surface-variant cursor-pointer hover:text-primary transition-colors">HISTORY</span>
-<span class="font-label text-label uppercase tracking-tighter text-on-surface-variant dark:text-on-surface-variant cursor-pointer hover:text-primary transition-colors">ROOMS</span>
-<span class="font-label text-label uppercase tracking-tighter text-primary dark:text-primary cursor-pointer border-b border-primary">SETTINGS</span>
-</div>
-</header>
-<main class="w-full max-w-[800px] mx-auto px-margin-mobile md:px-margin-desktop py-xl flex flex-col gap-xl">
-<!-- ACCOUNT SECTION -->
-<section class="flex flex-col gap-sm">
-<h2 class="font-label text-label text-on-surface-variant uppercase tracking-widest mb-2">ACCOUNT</h2>
-<div class="flex items-center justify-between w-full py-2">
-<div class="flex items-center gap-md">
-<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary font-heading text-heading">
-                        T
-                    </div>
-<div class="flex flex-col">
-<span class="font-body text-body text-primary">Tejas</span>
-<span class="font-caption text-caption text-on-surface-variant">tejas@gmail.com</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-</div>
-<button class="text-left font-body text-body text-on-surface-variant py-2 hover:text-primary transition-colors w-fit">Sign out</button>
-</section>
-<!-- REMINDERS SECTION -->
-<section class="flex flex-col">
-<h2 class="font-label text-label text-on-surface-variant uppercase tracking-widest mb-sm">REMINDERS</h2>
-<!-- Item -->
-<div class="flex items-center justify-between w-full py-md hairline-b">
-<div class="flex flex-col">
-<span class="font-body text-body text-primary">Quiet reminders</span>
-<span class="font-caption text-caption text-outline">Won't override silent or Do Not Disturb</span>
-</div>
-<!-- Minimal Toggle (Off) -->
-<div class="w-10 h-6 bg-surface-container rounded-full p-1 flex items-center justify-start cursor-pointer transition-colors border border-outline-variant/30">
-<div class="w-4 h-4 bg-outline-variant rounded-full shadow-sm"></div>
-</div>
-</div>
-<!-- Item -->
-<div class="flex items-center justify-between w-full py-md hairline-b cursor-pointer hover:bg-surface-container-low transition-colors px-xs -mx-xs">
-<span class="font-body text-body text-primary">Morning default</span>
-<div class="flex items-center gap-sm">
-<span class="font-mono-data text-mono-data text-on-surface-variant">9:00 AM</span>
-<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-</div>
-</div>
-<!-- Item -->
-<div class="flex items-center justify-between w-full py-md hairline-b cursor-pointer hover:bg-surface-container-low transition-colors px-xs -mx-xs">
-<span class="font-body text-body text-primary">Evening default</span>
-<div class="flex items-center gap-sm">
-<span class="font-mono-data text-mono-data text-on-surface-variant">6:00 PM</span>
-<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-</div>
-</div>
-<!-- Item -->
-<div class="flex items-center justify-between w-full py-md cursor-pointer hover:bg-surface-container-low transition-colors px-xs -mx-xs">
-<span class="font-body text-body text-primary">All-day reminder</span>
-<div class="flex items-center gap-sm">
-<span class="font-mono-data text-mono-data text-on-surface-variant">9:00 AM</span>
-<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-</div>
-</div>
-</section>
-<!-- PERMISSIONS SECTION -->
-<section class="flex flex-col">
-<h2 class="font-label text-label text-on-surface-variant uppercase tracking-widest mb-sm">PERMISSIONS</h2>
-<div class="flex items-center justify-between w-full py-md cursor-pointer hover:bg-surface-container-low transition-colors px-xs -mx-xs">
-<div class="flex flex-col">
-<div class="flex items-center gap-1">
-<span class="font-body text-body text-primary">Reminder permissions</span>
-<div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
-</div>
-<span class="font-caption text-caption text-outline">Battery optimization not exempted</span>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-</div>
-</section>
-<!-- ABOUT SECTION -->
-<section class="flex flex-col pt-md">
-<h2 class="font-label text-label text-on-surface-variant uppercase tracking-widest mb-sm">ABOUT</h2>
-<span class="font-body text-body text-on-surface-variant">Version 1.0</span>
-</section>
-</main>
-<!-- Bottom Nav (Mobile) -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile pb-4 pt-2 bg-surface dark:bg-surface border-t border-outline-variant dark:border-outline-variant">
-<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary active:scale-95 transition-transform duration-100 cursor-pointer group">
-<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">calendar_today</span>
-<span class="font-label text-[10px] uppercase tracking-tighter">TODAY</span>
-</div>
-<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary active:scale-95 transition-transform duration-100 cursor-pointer group">
-<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">history</span>
-<span class="font-label text-[10px] uppercase tracking-tighter">HISTORY</span>
-</div>
-<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary active:scale-95 transition-transform duration-100 cursor-pointer group">
-<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">layers</span>
-<span class="font-label text-[10px] uppercase tracking-tighter">ROOMS</span>
-</div>
-<div class="flex flex-col items-center justify-center text-primary dark:text-primary px-4 py-1 active:scale-95 transition-transform duration-100 cursor-pointer relative">
-<div class="absolute top-0 w-1 h-1 bg-primary rounded-full"></div>
-<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">settings</span>
-<span class="font-label text-[10px] uppercase tracking-tighter">SETTINGS</span>
-</div>
-</nav>
-</body></html>
+</body>
+</html>

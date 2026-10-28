@@ -1,199 +1,68 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Create Room &amp; Invite</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-surface": "#e5e2e1",
-                        "secondary-fixed-dim": "#c7c6c6",
-                        "inverse-surface": "#e5e2e1",
-                        "inverse-on-surface": "#313030",
-                        "surface-container": "#201f1f",
-                        "tertiary-container": "#eae1dd",
-                        "outline-variant": "#444748",
-                        "surface": "#141313",
-                        "on-tertiary-container": "#696360",
-                        "inverse-primary": "#5d5f5f",
-                        "on-tertiary-fixed": "#1f1b19",
-                        "on-secondary-container": "#b8b8b8",
-                        "surface-tint": "#c6c6c7",
-                        "background": "#141313",
-                        "secondary-container": "#484949",
-                        "on-background": "#e5e2e1",
-                        "on-error": "#690005",
-                        "tertiary": "#ffffff",
-                        "surface-variant": "#353434",
-                        "secondary": "#c7c6c6",
-                        "primary-fixed": "#e2e2e2",
-                        "on-primary-container": "#636565",
-                        "surface-bright": "#3a3939",
-                        "primary": "#ffffff",
-                        "surface-dim": "#141313",
-                        "on-tertiary": "#342f2d",
-                        "on-primary": "#2f3131",
-                        "on-primary-fixed-variant": "#454747",
-                        "surface-container-highest": "#353434",
-                        "outline": "#8e9192",
-                        "surface-container-high": "#2a2a2a",
-                        "tertiary-fixed": "#eae1dd",
-                        "primary-container": "#e2e2e2",
-                        "tertiary-fixed-dim": "#cec5c1",
-                        "on-tertiary-fixed-variant": "#4b4643",
-                        "on-error-container": "#ffdad6",
-                        "surface-container-lowest": "#0e0e0e",
-                        "error-container": "#93000a",
-                        "on-primary-fixed": "#1a1c1c",
-                        "error": "#ffb4ab",
-                        "on-secondary": "#2f3131",
-                        "on-secondary-fixed-variant": "#464747",
-                        "secondary-fixed": "#e3e2e2",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "on-surface-variant": "#c4c7c8",
-                        "surface-container-low": "#1c1b1b",
-                        "primary-fixed-dim": "#c6c6c7"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "xs": "4px",
-                        "margin-mobile": "16px",
-                        "gutter": "16px",
-                        "lg": "24px",
-                        "base": "4px",
-                        "margin-desktop": "32px",
-                        "xl": "32px",
-                        "md": "16px",
-                        "sm": "8px"
-                    },
-                    "fontFamily": {
-                        "caption": ["Instrument Sans"],
-                        "title-lg-mobile": ["Instrument Sans"],
-                        "body": ["Instrument Sans"],
-                        "label": ["Instrument Sans"],
-                        "display": ["Instrument Sans"],
-                        "title-lg": ["Instrument Sans"],
-                        "mono-data": ["JetBrains Mono"],
-                        "heading": ["Instrument Sans"]
-                    },
-                    "fontSize": {
-                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
-                        "title-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
-                        "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-                        "title-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "heading": ["20px", { "lineHeight": "28px", "fontWeight": "500" }]
-                    }
-                }
-            }
-        }
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>INK — New room</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../_shared/ink-tailwind.js"></script>
+<link rel="stylesheet" href="../_shared/ink.css"/>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
-        }
-        body {
-            min-height: max(884px, 100dvh);
-        }
-    </style>
+  /* Invite code: large letterspaced mono */
+  .invite-code { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 32px; line-height: 40px; font-weight: 500; letter-spacing: 0.08em; }
+</style>
 </head>
-<body class="bg-[#0C0C0C] text-primary font-body antialiased min-h-screen relative flex items-end md:items-center justify-center overflow-hidden">
-<!-- Dimmed Rooms Background Scene -->
-<div class="absolute inset-0 z-0 p-4 md:p-8 flex flex-col gap-4 opacity-40 select-none pointer-events-none">
-<div class="flex items-center justify-between mt-8 mb-4">
-<h1 class="text-3xl font-heading text-primary">Rooms</h1>
-<div class="w-10 h-10 rounded-full bg-surface-variant"></div>
+<body>
+<div class="screen">
+  <!-- Rooms, behind the scrim -->
+  <div aria-hidden="true">
+    <div class="statusbar"><span>9:41</span><span class="sb-icons"><span class="icon">signal_cellular_alt</span><span class="icon">wifi</span><span class="icon">battery_full</span></span></div>
+    <header class="page-head"><div class="row"><span class="t-label t-2">Rooms</span><span class="icon">add</span></div></header>
+  </div>
+  <div class="scrim"></div>
+
+  <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <h2 id="sheet-title" class="sheet-title">New room</h2>
+
+    <div class="field">
+      <label for="room-name" class="t-label">Room name</label>
+      <input id="room-name" class="input" type="text" value="Project Room"/>
+    </div>
+
+    <div class="sheet-section">
+      <span id="lbl-invite" class="t-label">Invite</span>
+      <div class="flex items-center justify-between" aria-labelledby="lbl-invite">
+        <span class="invite-code">TDQ-482</span>
+        <button class="icon-btn -mr-3" aria-label="Copy invite code"><span class="icon">content_copy</span></button>
+      </div>
+      <button class="btn btn-outline"><span class="icon" aria-hidden="true">share</span>Share invite link</button>
+    </div>
+
+    <div class="sheet-section">
+      <span id="lbl-members" class="t-label">Members</span>
+      <ul aria-labelledby="lbl-members">
+        <li class="list-row">
+          <span class="avatar" aria-hidden="true">T</span>
+          <span class="main"><span class="t-body truncate">Tejas <span class="t-caption t-2">— Admin (you)</span></span></span>
+        </li>
+        <li class="list-row">
+          <span class="avatar" aria-hidden="true">R</span>
+          <span class="main t-body truncate">Rahul</span>
+          <button class="icon-btn t-2 -mr-3" aria-label="Remove Rahul"><span class="icon">remove</span></button>
+        </li>
+        <li class="list-row">
+          <span class="avatar" aria-hidden="true">A</span>
+          <span class="main t-body truncate">Amit</span>
+          <button class="icon-btn t-2 -mr-3" aria-label="Remove Amit"><span class="icon">remove</span></button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pt-6">
+      <button class="btn btn-primary">Create room</button>
+    </div>
+  </section>
 </div>
-<div class="w-full h-24 rounded-2xl bg-surface-container"></div>
-<div class="w-full h-24 rounded-2xl bg-surface-container"></div>
-<div class="w-full h-24 rounded-2xl bg-surface-container"></div>
-</div>
-<!-- Scrim -->
-<div class="absolute inset-0 bg-black/60 backdrop-blur-sm z-10"></div>
-<!-- Bottom Sheet Container -->
-<div class="relative z-20 w-full max-w-[480px] bg-surface-container rounded-t-[24px] md:rounded-[24px] pb-lg pt-sm flex flex-col shadow-2xl">
-<!-- Drag Handle -->
-<div class="flex justify-center w-full mb-md">
-<div class="w-12 h-1 bg-outline-variant rounded-full"></div>
-</div>
-<div class="px-margin-mobile flex flex-col gap-lg">
-<!-- Header -->
-<div>
-<h2 class="font-heading text-heading text-primary">New room</h2>
-</div>
-<!-- Input -->
-<div class="relative group">
-<input class="block w-full rounded-full border border-outline-variant bg-transparent px-4 py-3 text-body font-body text-primary focus:border-outline focus:ring-0 peer" id="roomName" placeholder=" " type="text" value="Project Room"/>
-<label class="absolute text-on-surface-variant duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-surface-container px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-3 font-caption text-caption" for="roomName">Room name</label>
-</div>
-<!-- Invite Section -->
-<div class="flex flex-col gap-md">
-<span class="font-label text-label text-secondary uppercase tracking-widest">INVITE</span>
-<div class="flex items-center justify-between">
-<span class="font-mono-data text-[40px] leading-[48px] text-primary tracking-tight">TDQ-482</span>
-<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full hover:bg-surface-variant">
-<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
-</button>
-</div>
-<button class="w-full flex items-center justify-center gap-sm py-3 rounded-full border border-outline-variant text-primary hover:bg-surface-variant transition-colors font-body text-body">
-<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
-                    Share invite link
-                </button>
-</div>
-<!-- Members Section -->
-<div class="flex flex-col">
-<span class="font-label text-label text-secondary uppercase tracking-widest mb-md">MEMBERS</span>
-<div class="flex flex-col border-y border-[#262626]">
-<!-- Row 1 -->
-<div class="flex items-center justify-between py-4 border-b border-[#262626]">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary font-body text-body">T</div>
-<div class="flex items-baseline gap-2">
-<span class="font-body text-body text-primary">Tejas</span>
-<span class="font-caption text-caption text-secondary"> — Admin (you)</span>
-</div>
-</div>
-</div>
-<!-- Row 2 -->
-<div class="flex items-center justify-between py-4 border-b border-[#262626]">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary font-body text-body">R</div>
-<span class="font-body text-body text-primary">Rahul</span>
-</div>
-<button class="text-on-surface-variant hover:text-error transition-colors flex items-center justify-center p-1 rounded-full hover:bg-surface-variant">
-<span class="material-symbols-outlined" data-icon="remove">remove</span>
-</button>
-</div>
-<!-- Row 3 -->
-<div class="flex items-center justify-between py-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary font-body text-body">A</div>
-<span class="font-body text-body text-primary">Amit</span>
-</div>
-<button class="text-on-surface-variant hover:text-error transition-colors flex items-center justify-center p-1 rounded-full hover:bg-surface-variant">
-<span class="material-symbols-outlined" data-icon="remove">remove</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Action Button -->
-<button class="w-full py-4 rounded-full bg-inverse-surface text-surface-lowest font-heading text-heading mt-xs hover:opacity-90 transition-opacity">
-                Create room
-            </button>
-</div>
-</div>
-</body></html>
+</body>
+</html>

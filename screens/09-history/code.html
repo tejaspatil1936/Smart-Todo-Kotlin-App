@@ -1,228 +1,75 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>INK - History</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ffffff",
-                        "on-error-container": "#ffdad6",
-                        "on-tertiary": "#342f2d",
-                        "tertiary-container": "#eae1dd",
-                        "primary-container": "#e2e2e2",
-                        "inverse-primary": "#5d5f5f",
-                        "on-secondary-fixed-variant": "#464747",
-                        "on-tertiary-fixed": "#1f1b19",
-                        "error": "#ffb4ab",
-                        "on-tertiary-container": "#696360",
-                        "surface-container-lowest": "#0e0e0e",
-                        "surface": "#141313",
-                        "inverse-on-surface": "#313030",
-                        "secondary-container": "#484949",
-                        "surface-container-high": "#2a2a2a",
-                        "surface-container-low": "#1c1b1b",
-                        "on-primary-container": "#636565",
-                        "on-tertiary-fixed-variant": "#4b4643",
-                        "on-surface": "#e5e2e1",
-                        "surface-container-highest": "#353434",
-                        "surface-container": "#201f1f",
-                        "tertiary-fixed-dim": "#cec5c1",
-                        "primary-fixed-dim": "#c6c6c7",
-                        "surface-tint": "#c6c6c7",
-                        "on-primary-fixed": "#1a1c1c",
-                        "secondary-fixed": "#e3e2e2",
-                        "tertiary": "#ffffff",
-                        "outline": "#8e9192",
-                        "inverse-surface": "#e5e2e1",
-                        "on-surface-variant": "#c4c7c8",
-                        "outline-variant": "#444748",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "on-background": "#e5e2e1",
-                        "surface-bright": "#3a3939",
-                        "secondary-fixed-dim": "#c7c6c6",
-                        "primary-fixed": "#e2e2e2",
-                        "error-container": "#93000a",
-                        "surface-dim": "#141313",
-                        "secondary": "#c7c6c6",
-                        "on-secondary-container": "#b8b8b8",
-                        "on-secondary": "#2f3131",
-                        "on-primary": "#2f3131",
-                        "on-primary-fixed-variant": "#454747",
-                        "tertiary-fixed": "#eae1dd",
-                        "on-error": "#690005",
-                        "background": "#0C0C0C",
-                        "surface-variant": "#353434",
-                        "ground": "#0C0C0C",
-                        "hairline": "#262626",
-                        "surface-raised": "#1E1E1E",
-                        "inverted-surface": "#F5F5F5"
-                    },
-                    borderRadius: {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    spacing: {
-                        "xl": "32px",
-                        "base": "4px",
-                        "margin-mobile": "16px",
-                        "xs": "4px",
-                        "md": "16px",
-                        "sm": "8px",
-                        "lg": "24px",
-                        "gutter": "16px",
-                        "margin-desktop": "32px"
-                    },
-                    fontFamily: {
-                        "label": ["Instrument Sans"],
-                        "title-lg-mobile": ["Instrument Sans"],
-                        "caption": ["Instrument Sans"],
-                        "mono-data": ["JetBrains Mono"],
-                        "body": ["Instrument Sans"],
-                        "display": ["Instrument Sans"],
-                        "heading": ["Instrument Sans"],
-                        "title-lg": ["Instrument Sans"]
-                    },
-                    fontSize: {
-                        "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                        "title-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
-                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
-                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-                        "heading": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
-                        "title-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
-                    }
-                }
-            }
-        }
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>INK — History</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../_shared/ink-tailwind.js"></script>
+<link rel="stylesheet" href="../_shared/ink.css"/>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-        .time-rail {
-            width: 72px;
-            flex-shrink: 0;
-        }
-        .am-pm {
-            font-size: 10px;
-            margin-left: 2px;
-        }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+  /* Missed count: inverted against the unselected (dark) segment */
+  .segmented > button[aria-selected="false"] .badge { background: var(--inv); color: var(--on-inv); }
+</style>
 </head>
-<body class="bg-background text-primary font-body antialiased min-h-screen flex flex-col">
-<!-- Main Content Canvas -->
-<main class="flex-1 px-margin-mobile pb-[100px] pt-lg">
-<!-- Screen Title -->
-<h1 class="font-label text-label text-on-surface-variant uppercase mb-lg tracking-widest mt-md">HISTORY</h1>
-<!-- Segmented Control -->
-<div class="flex w-full bg-surface-raised p-1 rounded-full mb-xl">
-<button class="flex-1 bg-inverted-surface text-ground font-label text-label py-sm rounded-full text-center transition-all">
-                Completed
-            </button>
-<button class="flex-1 text-primary font-label text-label py-sm rounded-full text-center flex items-center justify-center gap-xs transition-all opacity-60">
-                Missed
-                <span class="bg-inverted-surface text-ground text-[10px] px-1.5 py-0.5 rounded-full leading-none">2</span>
-</button>
+<body>
+<div class="screen">
+  <div class="statusbar" aria-hidden="true"><span>9:41</span><span class="sb-icons"><span class="icon">signal_cellular_alt</span><span class="icon">wifi</span><span class="icon">battery_full</span></span></div>
+
+  <main class="screen-scroll">
+    <header class="page-head">
+      <div class="row"><h1 class="t-label t-2">History</h1></div>
+    </header>
+
+    <div class="gutter pt-2">
+      <div class="segmented" role="tablist" aria-label="History filter">
+        <button role="tab" aria-selected="true">Completed</button>
+        <button role="tab" aria-selected="false">Missed<span class="badge" aria-label="2 missed">2</span></button>
+      </div>
+    </div>
+
+    <div class="gutter pb-6">
+      <section aria-labelledby="d-sat">
+        <div class="section-head"><h2 id="d-sat" class="t-label">Sat, Aug 23</h2><span class="count">2</span></div>
+        <div class="todo-row is-done">
+          <div class="rail"><span class="time">7:00<span class="mer">PM</span></span></div>
+          <div class="main"><span class="title truncate">DSA</span></div>
+          <button class="check is-checked" aria-label="DSA completed. Mark not done"><span class="icon">check</span></button>
+        </div>
+        <div class="todo-row is-done">
+          <div class="rail"><span class="time">5:00<span class="mer">PM</span></span></div>
+          <div class="main"><span class="title truncate">Project Meeting</span></div>
+          <button class="check is-checked" aria-label="Project Meeting completed. Mark not done"><span class="icon">check</span></button>
+        </div>
+      </section>
+
+      <section aria-labelledby="d-fri">
+        <div class="section-head"><h2 id="d-fri" class="t-label">Fri, Aug 22</h2><span class="count">3</span></div>
+        <div class="todo-row is-done">
+          <div class="rail"><span class="time">8:00<span class="mer">PM</span></span></div>
+          <div class="main"><span class="title truncate">Leetcode</span></div>
+          <button class="check is-checked" aria-label="Leetcode completed. Mark not done"><span class="icon">check</span></button>
+        </div>
+        <div class="todo-row is-done">
+          <div class="rail"><span class="time">6:00<span class="mer">AM</span></span></div>
+          <div class="main"><span class="title truncate">Gym</span></div>
+          <button class="check is-checked" aria-label="Gym completed. Mark not done"><span class="icon">check</span></button>
+        </div>
+        <div class="todo-row is-done">
+          <div class="rail"><span class="time">9:00<span class="mer">AM</span></span></div>
+          <div class="main"><span class="title truncate">Standup</span></div>
+          <button class="check is-checked" aria-label="Standup completed. Mark not done"><span class="icon">check</span></button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Primary">
+    <a href="#"><span class="dot"></span><span class="icon">calendar_today</span>Today</a>
+    <a href="#" aria-current="page"><span class="dot"></span><span class="icon">history</span>History</a>
+    <a href="#"><span class="dot"></span><span class="icon">layers</span>Rooms</a>
+    <a href="#"><span class="dot"></span><span class="icon">settings</span>Settings</a>
+  </nav>
 </div>
-<!-- History List -->
-<div class="flex flex-col gap-0 opacity-50">
-<!-- Section: SAT, AUG 23 -->
-<div class="flex justify-between items-end pb-sm pt-md border-b border-hairline">
-<span class="font-label text-label text-on-surface-variant uppercase tracking-widest">SAT, AUG 23</span>
-<span class="font-mono-data text-mono-data text-on-surface-variant">2</span>
-</div>
-<!-- Todo Row -->
-<div class="flex items-center py-md border-b border-hairline group">
-<div class="time-rail flex items-baseline text-on-surface-variant font-mono-data text-mono-data">
-                    7:00<span class="am-pm uppercase">PM</span>
-</div>
-<div class="flex-1 line-through text-on-surface-variant font-body text-body">
-                    DSA
-                </div>
-<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'wght' 200;">check</span>
-</div>
-<!-- Todo Row -->
-<div class="flex items-center py-md border-b border-hairline group">
-<div class="time-rail flex items-baseline text-on-surface-variant font-mono-data text-mono-data">
-                    5:00<span class="am-pm uppercase">PM</span>
-</div>
-<div class="flex-1 line-through text-on-surface-variant font-body text-body">
-                    Project Meeting
-                </div>
-<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'wght' 200;">check</span>
-</div>
-<!-- Section: FRI, AUG 22 -->
-<div class="flex justify-between items-end pb-sm pt-xl border-b border-hairline">
-<span class="font-label text-label text-on-surface-variant uppercase tracking-widest">FRI, AUG 22</span>
-<span class="font-mono-data text-mono-data text-on-surface-variant">3</span>
-</div>
-<!-- Todo Row -->
-<div class="flex items-center py-md border-b border-hairline group">
-<div class="time-rail flex items-baseline text-on-surface-variant font-mono-data text-mono-data">
-                    8:00<span class="am-pm uppercase">PM</span>
-</div>
-<div class="flex-1 line-through text-on-surface-variant font-body text-body">
-                    Leetcode
-                </div>
-<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'wght' 200;">check</span>
-</div>
-<!-- Todo Row -->
-<div class="flex items-center py-md border-b border-hairline group">
-<div class="time-rail flex items-baseline text-on-surface-variant font-mono-data text-mono-data">
-                    6:00<span class="am-pm uppercase">AM</span>
-</div>
-<div class="flex-1 line-through text-on-surface-variant font-body text-body">
-                    Gym
-                </div>
-<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'wght' 200;">check</span>
-</div>
-<!-- Todo Row -->
-<div class="flex items-center py-md border-b border-hairline group">
-<div class="time-rail flex items-baseline text-on-surface-variant font-mono-data text-mono-data">
-                    9:00<span class="am-pm uppercase">AM</span>
-</div>
-<div class="flex-1 line-through text-on-surface-variant font-body text-body">
-                    Standup
-                </div>
-<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'wght' 200;">check</span>
-</div>
-</div>
-</main>
-<!-- Bottom Navigation Shell -->
-<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center py-md bg-background border-t border-outline-variant z-50 md:hidden">
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 tap-highlight-none active:scale-90 transition-all hover:opacity-80" href="#">
-<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
-<span class="font-label text-label text-[10px]">Today</span>
-</a>
-<a class="flex flex-col items-center justify-center text-primary dark:text-primary px-4 py-1 tap-highlight-none active:scale-90 transition-all hover:opacity-80 relative" href="#">
-<span class="absolute top-0 w-1 h-1 rounded-full bg-primary mb-1"></span>
-<span class="material-symbols-outlined mb-1 mt-1" data-icon="history" data-weight="fill">history</span>
-<span class="font-label text-label text-[10px]">History</span>
-</a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 tap-highlight-none active:scale-90 transition-all hover:opacity-80" href="#">
-<span class="material-symbols-outlined mb-1" data-icon="layers">layers</span>
-<span class="font-label text-label text-[10px]">Rooms</span>
-</a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 tap-highlight-none active:scale-90 transition-all hover:opacity-80" href="#">
-<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
-<span class="font-label text-label text-[10px]">Settings</span>
-</a>
-</nav>
-</body></html>
+</body>
+</html>

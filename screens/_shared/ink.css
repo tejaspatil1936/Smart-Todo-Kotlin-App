@@ -204,7 +204,8 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   padding: var(--gap-xl) 0 var(--gap-sm);
   color: var(--text-2);
 }
-.section-head:first-child { padding-top: var(--gap-md); }
+/* Only the list's very first header tucks up under the page header. */
+:first-child > .section-head:first-child { padding-top: var(--gap-md); }
 .section-head .count { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 13px; line-height: 16px; }
 
 /* TODO ROW: rail | title+caption | checkbox. Dividers run margin to margin. */
@@ -563,3 +564,6 @@ button.list-row:active, a.list-row:active { background: var(--surface); }
 .pager { display: flex; justify-content: center; gap: var(--gap-sm); padding: var(--gap-md) 0; }
 .pager span { width: 6px; height: 6px; border-radius: 999px; border: 1px solid var(--disabled); }
 .pager span[aria-current="step"] { background: var(--text-1); border-color: var(--text-1); width: 18px; }
+
+/* Colour utilities must beat component defaults when composed on them. */
+.btn.t-2, .list-row .t-2, .icon-btn.t-2, .snackbar .t-2 { color: var(--text-2); }
